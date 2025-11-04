@@ -1,0 +1,55 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #59762D;
+    height: 7vh;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    color: white;
+}
+
+.container div{
+    width: 33%;
+}
+
+.container h1{
+    font-size: 1.5vw;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input{
+    height: 3vh;
+    width: 20vw;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.search img{
+    background-color: #71953E;
+    height: 3vh;
+    width: 3vw;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.perfil{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5vw;
+}
+
+.fotoPerfil{
+    height: 2.5vw;
+    width: 2.5vw;
+    object-fit: cover;
+    border-radius: 99999999rem;
+}

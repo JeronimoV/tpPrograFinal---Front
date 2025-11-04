@@ -1,0 +1,18 @@
+<div class="container">
+    <img src="feliz-pareja-besando-su-hijo.jpg"/>
+    <div class="login">
+        <h1>FamilyWeb</h1>
+        <h2>Iniciar Sesion</h2>
+        <form (submit)="loguearUsuario()">
+            <div>
+                <label for="email">Email</label>
+                <input class="email" type="email" name="email" [(ngModel)]="email" placeholder="Ingrese su email"/>
+            </div>
+            <div>
+                <label for="contraseña">Contraseña</label>
+                <input class="contraseña" type="password" name="password" [(ngModel)]="password" placeholder="Ingrese su contraseña"/>
+            </div>
+            <button class="button" type="submit">Iniciar Sesion</button>
+        </form>
+    </div>
+</div>

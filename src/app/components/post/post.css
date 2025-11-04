@@ -1,0 +1,39 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    width: 60vw;
+    padding: 1vw;
+    border-radius: 5px;
+    gap: 1vw;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.062);
+}
+
+.userData{
+    width: 93%;
+}
+
+.postContainer{
+    background-color: #D9D9D9;
+    width: 90%;
+    border-radius: 5px;
+    padding: 1vw;
+}
+
+.imgVacio{
+    display: none;
+}
+
+.imgContenido{
+    display: block;
+}
+
+.reactionsContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    opacity: 0.5;
+}

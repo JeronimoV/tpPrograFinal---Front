@@ -1,0 +1,26 @@
+<div class="container">
+    <img src="feliz-pareja-besando-su-hijo.jpg"/>
+@if(nextStep){
+    <app-second-step-register [email]="email" [password]="password"/>
+}@else {
+        <div class="login">
+            <h1>FamilyWeb</h1>
+            <h2>Registrarse</h2>
+            <form>
+                <div>
+                    <label for="email">Email</label>
+                    <input [(ngModel)]="email" name="email" class="email" type="email" placeholder="Ingrese su email"/>
+                </div>
+                <div>
+                    <label for="contraseña">Contraseña</label>
+                    <input [(ngModel)]="password" name="password" class="contraseña" type="password" placeholder="Ingrese su contraseña"/>
+                </div>
+                <div>
+                    <label for="repetirContraseña">Contraseña</label>
+                    <input class="repetirContraseña" type="password" placeholder="Repetir Contraseña"/>
+                </div>
+                <button class="button" type="submit" (click)="selectNextStep($event)">Siguiente Paso</button>
+            </form>
+        </div>
+    }
+</div>
