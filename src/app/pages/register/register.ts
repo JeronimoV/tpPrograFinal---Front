@@ -36,6 +36,8 @@ export class Register {
     this.email.trim() === "" ? this.error.email = "Campo Obligatorio. Rellenar" : this.error.email = "";
     this.password.trim() === "" ? this.error.password = "Campo Obligatorio. Rellenar" : this.error.password = "";
     this.password2.trim() === "" ? this.error.password2 = "Campo Obligatorio. Rellenar" : this.error.password2 = "";
+    const rgx = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    rgx.test(this.email) == false ? this.error.email = "Formato de email erroneo" : this.error.email = "";
     this.verificarErrores();
     if(this.error.email == "" && this.error.password == "" && this.error.password2 == ""){
       this.nextStep = true;
