@@ -81,3 +81,9 @@
     margin-top: 0.5vw;
     color: rgb(119, 6, 6);
 }
+
+.msg{
+    opacity: .75;
+    text-align: center;
+    cursor: pointer;
+}

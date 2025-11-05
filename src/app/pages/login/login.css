@@ -75,3 +75,9 @@
     border: none;
     border-radius: 5px;
 }
+
+.msg{
+    opacity: .75;
+    text-align: center;
+    cursor: pointer;
+}
