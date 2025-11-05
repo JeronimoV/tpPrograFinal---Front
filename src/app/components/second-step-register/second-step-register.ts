@@ -64,7 +64,7 @@ export class SecondStepRegister {
     this.data.email = this.email;
     this.data.password = this.password;
     if(!this.verificarExistenciaDatos()){
-      await this.auth.registerUser(this.data).then(res => localStorage.setItem("data", res.data)).then(res => this.router.navigate(["/"])).catch(err => alert(err.response.data.message));
+      await this.auth.registerUser(this.data).then(res => localStorage.setItem("data", JSON.stringify(res.data))).then(res => this.router.navigate(["/"])).catch(err => alert(err.response.data.message));
     }
   }
 }
