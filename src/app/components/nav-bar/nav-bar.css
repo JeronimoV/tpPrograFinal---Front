@@ -54,3 +54,7 @@
     object-fit: cover;
     border-radius: 99999999rem;
 }
+
+.main{
+    cursor: pointer;
+}
