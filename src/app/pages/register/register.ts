@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { SecondStepRegister } from '../../components/second-step-register/second-step-register';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [SecondStepRegister, FormsModule],
+  imports: [SecondStepRegister, FormsModule, RouterLink],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
