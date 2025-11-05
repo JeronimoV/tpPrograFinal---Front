@@ -9,7 +9,7 @@
             <form>
                 <div>
                     <label for="email">Email</label>
-                    <input [(ngModel)]="email" name="email" class="email" type="email" placeholder="Ingrese su email"/>
+                    <input pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/" [(ngModel)]="email" name="email" class="email" type="email" placeholder="Ingrese su email"/>
                     <p class="error">{{error.email}}</p>
                 </div>
                 <div>
