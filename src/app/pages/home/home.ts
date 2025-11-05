@@ -9,5 +9,4 @@ import { Post } from '../../components/post/post';
   styleUrl: './home.css',
 })
 export class Home {
-
 }

@@ -25,6 +25,17 @@ export class SecondStepRegister {
     descripcion : "",
   }
 
+  error : { [key: string]: string } = {
+    image : "",
+    email: "",
+    password: "",
+    name : "",
+    surname : "",
+    userName : "",
+    fechaNacimiento : "",
+    descripcion : "",
+  }
+
   constructor(private auth : Authentication, private router : Router){}
 
   async selectedPhoto(event : any){   
@@ -35,12 +46,25 @@ export class SecondStepRegister {
     this.data.image = result.data.url;
   }
 
+  verificarExistenciaDatos(){
+    let faltanDatos = false;
+    Object.entries(this.data).forEach((key, index) => {
+      if(key[1].trim() == "") {
+        this.error[key[0]] = "Campo obligatorio. Rellenar";
+        faltanDatos = true;
+      }
+    })
+    return faltanDatos;
+  }
+
 
   async registrarUsuario(event : any){
     event.preventDefault();
     
     this.data.email = this.email;
     this.data.password = this.password;
-    const response = await this.auth.registerUser(this.data).then(res => this.router.navigate(["/"])).catch(err => alert(err.message));
+    if(!this.verificarExistenciaDatos()){
+      await this.auth.registerUser(this.data).then(res => localStorage.setItem("data", res.data)).then(res => this.router.navigate(["/"])).catch(err => alert(err.response.data.message));
+    }
   }
 }

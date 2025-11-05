@@ -10,14 +10,17 @@
                 <div>
                     <label for="email">Email</label>
                     <input [(ngModel)]="email" name="email" class="email" type="email" placeholder="Ingrese su email"/>
+                    <p class="error">{{error.email}}</p>
                 </div>
                 <div>
                     <label for="contraseña">Contraseña</label>
-                    <input [(ngModel)]="password" name="password" class="contraseña" type="password" placeholder="Ingrese su contraseña"/>
+                    <input (input)="verificarErrores()" [(ngModel)]="password" name="password" class="contraseña" type="password" placeholder="Ingrese su contraseña"/>
+                    <p class="error">{{error.password}}</p>
                 </div>
                 <div>
                     <label for="repetirContraseña">Contraseña</label>
-                    <input class="repetirContraseña" type="password" placeholder="Repetir Contraseña"/>
+                    <input (input)="verificarErrores()" [(ngModel)]="password2" name="password2" class="repetirContraseña" type="password" placeholder="Repetir Contraseña"/>
+                    <p class="error">{{error.password2}}</p>
                 </div>
                 <button class="button" type="submit" (click)="selectNextStep($event)">Siguiente Paso</button>
             </form>

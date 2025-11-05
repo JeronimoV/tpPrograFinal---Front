@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import axios from "axios"
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,9 @@ import axios from "axios"
 export class Authentication {
   async loginUser(data : any){
     try {
-      const response = await axios.post("http://localhost:3000/authentication", data)
+      const response = await axios.post(`${environment.apiUrl}authentication`, data)
+      console.log("response: " + response);
+      
       return response;
     } catch (error) {
       console.log(error);
@@ -19,7 +22,7 @@ export class Authentication {
     try {
       console.log(data);
       
-      const response = await axios.post("http://localhost:3000/users", data)
+      const response = await axios.post(`${environment.apiUrl}users`, data)
       return response;
     } catch (error) {
       console.log(error);
@@ -31,7 +34,7 @@ export class Authentication {
     try {
       console.log(data);
       
-      const response = await axios.post("http://localhost:3000/cloudinary", data)
+      const response = await axios.post(`${environment.apiUrl}cloudinary`, data)
       return response;
     } catch (error) {
       console.log(error);

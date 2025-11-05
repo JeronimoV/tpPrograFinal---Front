@@ -7,27 +7,32 @@
             <div>
                 <label for="name">Nombre</label>
                 <input name="name" [(ngModel)]="data.name" class="name" type="text" placeholder="Ingrese su nombre"/>
+                <p class="error">{{error["name"]}}</p>
             </div>
             <div>
                 <label for="surname">Apellido</label>
                 <input name="surname" [(ngModel)]="data.surname" class="surname" type="text" placeholder="Ingrese su apellido"/>
+                <p class="error">{{error["surname"]}}</p>
             </div>
             <div>
                 <label for="userName">Nombre de usuario</label>
                 <input name="userName" [(ngModel)]="data.userName" class="userName" type="text" placeholder="Ingrese su userName"/>
+                <p class="error">{{error["userName"]}}</p>
             </div>
             <div>
                 <label for="fechaNacimiento">Fecha de Nacimiento</label>
                 <input name="fechaNacimiento" [(ngModel)]="data.fechaNacimiento" class="fechaNacimiento" type="date" placeholder="Ingrese su fechaNacimiento"/>
+                <p class="error">{{error["fechaNacimiento"]}}</p>
             </div>
         </div>
         <div class="col-2">
             <label for="descripcion">Descripcion</label>
             <textarea name="descripcion" [(ngModel)]="data.descripcion" class="descripcion"></textarea>
+            <p class="error">{{error["descripcion"]}}</p>
         </div>
         <div class="col-3">
             <img [src]="data.image"/>
-            <input (change)="selectedPhoto($event)" name="image" [(ngModel)]="data.image" type="file"/>
+            <input accept=".jpg,.jpeg,.png,.gif" (change)="selectedPhoto($event)" name="image" [(ngModel)]="data.image" type="file"/>
             <button (click)="registrarUsuario($event)">Terminar Registro</button>
         </div>
     </form>

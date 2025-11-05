@@ -12,10 +12,34 @@ export class Register {
   nextStep = false;
   email = "";
   password = "";
+  password2 = "";
+
+  error = {
+    email: "",
+    password: "",
+    password2: ""
+  }
+
+  verificarErrores(){
+    console.log("entre papus");
+    
+    if(this.password != this.password2){
+      this.error.password2 = "Las contraseñas no coinciden"
+    }else{
+      this.error.password2 = "";
+    }
+  }
 
 
   selectNextStep(event : any){
     event.preventDefault()
-    this.nextStep = true;
+    this.email.trim() === "" ? this.error.email = "Campo Obligatorio. Rellenar" : this.error.email = "";
+    this.password.trim() === "" ? this.error.password = "Campo Obligatorio. Rellenar" : this.error.password = "";
+    this.password2.trim() === "" ? this.error.password2 = "Campo Obligatorio. Rellenar" : this.error.password2 = "";
+    this.verificarErrores();
+    if(this.error.email == "" && this.error.password == "" && this.error.password2 == ""){
+      this.nextStep = true;
+      
+    }
   }
 }

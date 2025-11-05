@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Authentication } from '../../services/authentication/authentication';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Authentication } from '../../services/authentication/authentication';
 })
 export class Login {
 
-  constructor(private authentication : Authentication){}
+  constructor(private authentication : Authentication, private router : Router){}
 
   email = "";
   password = "";
@@ -18,8 +19,7 @@ export class Login {
   async loguearUsuario(){
     console.log(this.email, this.password);
     
-    const response = await this.authentication.loginUser({email: this.email, password: this.password})
-    console.log(response);
+    await this.authentication.loginUser({email: this.email, password: this.password}).then(res => localStorage.setItem("data", res.data)).then(res => this.router.navigate(["/"])).catch(err => alert(err.response.data.message));
     
   }
 }

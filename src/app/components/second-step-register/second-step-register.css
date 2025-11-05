@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: 60vh;
     gap: 3vw;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .col-1{
-    height: 35vh;
+    height: 40vh;
 }
 
 .col-1 input{
@@ -97,4 +97,9 @@
     padding-left: 1vw;
     border-radius: 5px;
     margin-top: 0.5vw;
+}
+
+.error{
+    color: rgb(119, 6, 6);
+    font-size: 0.8vw;
 }
