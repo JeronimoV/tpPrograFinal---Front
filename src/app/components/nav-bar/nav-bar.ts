@@ -8,5 +8,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './nav-bar.css',
 })
 export class NavBar {
-  data = localStorage.getItem("data");
+  data = localStorage.getItem("data") || {userName: "Cargando...", image: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"};
 }
