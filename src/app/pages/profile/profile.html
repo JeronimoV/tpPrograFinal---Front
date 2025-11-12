@@ -1,14 +1,14 @@
 <div class="container">
     <div class="info">
-        <img [src]="userData.image"/>
+        <img [src]="userData().image"/>
         <div class="nombres-usuario">
-            <p class="usuario">{{userData.userName}}</p>
-            <p class="nombre">{{userData.name}} {{userData.surname}}</p>
+            <p class="usuario">{{userData().userName}}</p>
+            <p class="nombre">{{userData().name}} {{userData().surname}}</p>
         </div>
     </div>
     <div class="descripcion">
-        <p>Descripcion:</p>
-        <p class="descripcion-completa">{{userData.descripcion}}</p>
+        <p class="descripcion-title">Descripcion:</p>
+        <p class="descripcion-completa">{{userData().descripcion}}</p>
     </div>
     <div class="posts">
         @for(post of posts(); track post){

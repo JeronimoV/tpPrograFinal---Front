@@ -7,6 +7,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './user-photo-and-name.html',
   styleUrl: './user-photo-and-name.css',
 })
-export class UserPhotoAndName {
+export class UserPhotoAndName{
   @Input() data : any;
 }

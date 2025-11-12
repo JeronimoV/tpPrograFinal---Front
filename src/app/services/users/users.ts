@@ -6,6 +6,12 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class Users {
+
+  obtenerUserData(id : any){
+    const response = axios.get(`${environment.apiUrl}users/id/${id}`);
+    return response;
+  }
+
   darMeGusta(data: any){
     const response = axios.post(`${environment.apiUrl}users/like`, data);
     return response;  

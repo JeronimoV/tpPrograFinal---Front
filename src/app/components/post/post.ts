@@ -47,8 +47,8 @@ export class Post implements OnInit {
   }
 
   async deletePost(){
-    const response = await this.postService.borrarPost(this.post._id).then(res => alert("Post Eliminado")).catch(err => console.log(err)
-    )
+    const response = await this.postService.borrarPost(this.post._id).then(res => alert("Post Eliminado")).catch(err => console.log(err))
+    window.location.reload()
   }
 
 }

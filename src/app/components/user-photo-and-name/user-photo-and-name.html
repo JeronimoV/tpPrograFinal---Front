@@ -1,4 +1,4 @@
-<div routerLink="/profile" class="perfil">
+<div routerLink="/profile" [queryParams]="{id: data._id}" class="perfil">
     <img class="fotoPerfil" [src]="data.image"/>
     <p>{{data.name}} {{data.surname}}</p>
 </div>

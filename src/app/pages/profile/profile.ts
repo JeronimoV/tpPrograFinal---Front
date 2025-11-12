@@ -1,6 +1,7 @@
-import { Component, OnInit, Signal, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Post } from '../../components/post/post';
 import { Posts } from '../../services/posts/posts';
+import { Users } from '../../services/users/users';
 
 @Component({
   selector: 'app-profile',
@@ -11,13 +12,17 @@ import { Posts } from '../../services/posts/posts';
 export class Profile implements OnInit {
   posts = signal([]);
 
-  userData = JSON.parse(localStorage.getItem("data") ?? "{}");
+  userData = signal({_id: "", surname: "", name: "", image: "", descripcion: "", userName: ""});
 
-  constructor(private postService: Posts){}
+  constructor(private postService: Posts, private userServices : Users){}
 
   async ngOnInit() {
-    await this.postService.obtenerUsersPosts(this.userData._id).then((res) => this.posts.set(res.data))
-    console.log(this.userData);
+    console.log(window.location.search.split("=")[1]);
+    
+
+    await this.userServices.obtenerUserData(window.location.search.split("=")[1]).then(res => this.userData.set(res.data))
+    
+    await this.postService.obtenerUsersPosts(this.userData()._id).then((res) => this.posts.set(res.data))
     
   }
 } 
