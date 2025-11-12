@@ -106,7 +106,11 @@ export class Home implements OnInit {
     let postAuxiliar = [...this.postPaginado()];
     postAuxiliar.unshift(response.data);
 
+    let postAuxiliar2 = [...this.posts()];
+    postAuxiliar2[0].unshift(response.data);
+
     this.postPaginado.set(postAuxiliar);
+    this.posts.set(postAuxiliar2)
 
     this.text = '';
     this.images = ['', '', ''];
