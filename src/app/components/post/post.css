@@ -4,15 +4,22 @@
     align-items: center;
     flex-direction: column;
     background-color: white;
-    width: 60vw;
+    width: 40vw;
     padding: 1vw;
     border-radius: 5px;
     gap: 1vw;
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.062);
+    margin-bottom: 1vw;
 }
 
 .userData{
     width: 93%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.date{
+    opacity: 0.5;
 }
 
 .postContainer{
@@ -22,12 +29,22 @@
     padding: 1vw;
 }
 
-.imgVacio{
-    display: none;
-}
 
 .imgContenido{
-    display: block;
+    object-fit:contain;
+    max-height: 50vh;
+    min-width: 10vw;
+}
+
+.imgOculto{
+    display:none;
+}
+
+.imagenes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
 }
 
 .reactionsContainer{
@@ -36,4 +53,16 @@
     justify-content: center;
     gap: 2vw;
     opacity: 0.5;
+}
+
+.reactionsContainer p{
+    padding: 0.5vw;
+    cursor: pointer;
+}
+
+.liked{
+    color: white;
+    background-color: blue;
+    border-radius: 5px;
+    padding: 0.5vw;
 }

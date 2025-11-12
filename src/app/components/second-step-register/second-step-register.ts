@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Authentication } from '../../services/authentication/authentication';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { getImageURL } from '../../utils/gestionFotos.utils';
 
 @Component({
   selector: 'app-second-step-register',
@@ -39,11 +40,7 @@ export class SecondStepRegister {
   constructor(private auth : Authentication, private router : Router){}
 
   async selectedPhoto(event : any){   
-
-    const formData = new FormData();
-    formData.append("image", event.target.files[0])
-    const result = await this.auth.uploadPhoto(formData);
-    this.data.image = result.data.url;
+    this.data.image = await getImageURL(event, this.auth);
   }
 
   verificarExistenciaDatos(){

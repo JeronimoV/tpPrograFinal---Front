@@ -1,6 +1,39 @@
 <div class="container">
+    <div class="ordenamiento">
+        <p class="ordenamiento-titulo">Ordenamiento</p>
+        <p>Ordenamiento actual: Fecha</p>
+        <button (click)="ordenarPorFecha()">Ordenar por fecha</button>
+        <button (click)="ordenarPorMeGusta()">Ordenar por me gustas</button>
+    </div>
+
     <div class="post-container">
-        <app-post/>
+        <form class="form">
+            <app-user-photo-and-name [data]="userData"/>
+            <textarea name="text" [(ngModel)]="text" placeholder="Que estas pensando??" rows="3"></textarea>
+            <div class="imagenes">
+                <img [ngClass]="images[0] !== '' ? 'imgContenido' : 'imgOculto'" [src]="images[0]"/>
+                <img [ngClass]="images[1] !== '' ? 'imgContenido' : 'imgOculto'" [src]="images[1]"/>
+                <img [ngClass]="images[2] !== '' ? 'imgContenido' : 'imgOculto'" [src]="images[2]"/>
+            </div>
+            <div class="contenedor-buttons">
+                <div class="contenedor-file">
+                    <label class="label" for="img">{{stateImage}}</label>
+                    <input name="img" type="file" (change)="selectedPhoto($event)" class="subirImagen"/>
+                </div>
+                <button (click)="createPost()" type="submit" class="subirPost">Publicar</button>
+            </div>
+        </form>
+        @for(post of postPaginado(); track post._id){
+            <app-post [post]="post"></app-post>
+        }
+        <div class="paginado">
+            <p (click)="paginaAnterior()" class="selectores">Anterior </p>
+            <div>
+                <p>Pagina: </p>
+                <p class="pageNumber">{{pageNumber()}}</p>
+            </div>
+            <p (click)="paginaSiguiente()" class="selectores">Siguiente</p>
+        </div>
     </div>
     <app-chat/>
 </div>
