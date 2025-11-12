@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:3000/" //'https://tp-progra-final-back.vercel.app/'
+  apiUrl: "https://tp-progra-final-back-1z2yj29nb-jeronimovs-projects.vercel.app/" //"http://localhost:3000/" //'https://tp-progra-final-back.vercel.app/'
 };
