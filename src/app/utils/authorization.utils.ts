@@ -7,7 +7,10 @@ export async function verificarToken(auth: Authentication, router: Router) {
   
   if (local.error == undefined) {
     
+    
     try {
+      console.log(local);
+      
       const response = await auth.verifyToken('Bearer ' + local.token);
       return false;
       
@@ -20,7 +23,7 @@ export async function verificarToken(auth: Authentication, router: Router) {
   }else{
     setTimeout(() => {
         router.navigate(['/login']);
-        console.log("no esta");
+        console.log("no esta2");
       }, 2000);
   }
   return true;
