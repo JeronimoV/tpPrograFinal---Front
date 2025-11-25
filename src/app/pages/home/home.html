@@ -1,4 +1,5 @@
 <div class="container">
+    <app-loading-page  [open]="loading()"/>
     <div class="ordenamiento">
         <p class="ordenamiento-titulo">Ordenamiento</p>
         <p>Ordenamiento actual: Fecha</p>
@@ -23,8 +24,10 @@
                 <button (click)="createPost()" type="submit" class="subirPost">Publicar</button>
             </div>
         </form>
-        @for(post of postPaginado(); track post._id){
-            <app-post [post]="post"></app-post>
+        @if(userData.error == undefined){
+            @for(post of postPaginado(); track post._id){
+                <app-post [post]="post" [adminOptions]="userData.admin"></app-post>
+            }
         }
         <div class="paginado">
             <p (click)="paginaAnterior()" class="selectores">Anterior </p>

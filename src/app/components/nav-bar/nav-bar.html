@@ -8,5 +8,8 @@
     </div>
     <div class="perfil">
         <app-user-photo-and-name [data]="userData"/>
+        @if(userData.error == undefined){
+            <p (click)="cerrarSesion()"> - Cerrar Sesion</p>
+        }
     </div>
 </div>

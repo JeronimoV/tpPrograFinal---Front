@@ -1,0 +1,26 @@
+@if(!editing()){
+  <div class="comentario-card">
+    @if(comment != undefined && comment.user != undefined){
+      <div class="info">
+        <app-user-photo-and-name [data]="comment.user"/>
+        @if(comment.edited == true){
+          <p class="editado">Cometario Editado!</p>
+        }
+      </div>
+      <p class="comentario-text">{{comment.text}}</p>
+      @if(ownComment() == true){
+        <button (click)="startEdit()" class="comentario-button">Editar</button>
+      }
+    }
+      
+  </div>
+}@else {
+  <div class="comentario-card">
+    @if(comment != undefined && comment.user != undefined){
+      <app-user-photo-and-name [data]="comment.user"/>
+      <input placeholder="Ingresa un texto" [(ngModel)]="comment.text"  class="comentario-input"/>
+    }
+    <button (click)="editComent()" class="comentario-button">Terminar edicion</button>
+  </div>
+}
+

@@ -1,27 +1,50 @@
-<div class="container">
-    <div class="userData">
-        <app-user-photo-and-name [data]="post.user"/>
-        <p class="date">{{post.createdAt | date: 'dd/MM/yyyy HH:mm'}}</p>
-        @if (ownPost) {
-            <p (click)="deletePost()">Borrar</p>
-        }
+<div [ngClass]="opened == false ? 'container' : 'container-opened'">
+  <div class="userData">
+    <app-user-photo-and-name [data]="post.user" />
+    <p class="date">{{ post.createdAt | date : 'dd/MM/yyyy HH:mm' }}</p>
+    @if (ownPost || adminOptions) {
+      <p (click)="deletePost()">Borrar</p>
+    }
+  </div>
+  <div class="postContainer">
+    <p>{{ post.text }}</p>
+  </div>
+  <div class="imagenes">
+    <img [ngClass]="post.images[0] !== '' ? 'imgContenido' : 'imgOculto'" [src]="post.images[0]" />
+    <img [ngClass]="post.images[1] !== '' ? 'imgContenido' : 'imgOculto'" [src]="post.images[1]" />
+    <img [ngClass]="post.images[2] !== '' ? 'imgContenido' : 'imgOculto'" [src]="post.images[2]" />
+  </div>
+  <div class="reactionsContainer">
+    @if (!ownPost) { @if(post.liked == true){
+    <p (click)="quitarLike()" class="liked">😀 Me Gustó - {{ post.likes }}</p>
+    }@else {
+    <p (click)="darLike()">Me Gusta - {{ post.likes }}</p>
+    } } @if(!opened){
+    <p (click)="abrirPost()">Comentarios</p>
+    }@else{
+    <p (click)="cerrarPost()">Cerrar</p>
+    }
+  </div>
+  @if (opened) {
+  <div class="comentarios">
+    <form class="form">
+      <app-user-photo-and-name [data]="userData" />
+      <textarea
+        name="text"
+        [(ngModel)]="text"
+        placeholder="Que estas pensando??"
+        rows="3"
+      ></textarea>
+      <div class="contenedor-buttons">
+        <button (click)="createComment()" type="submit" class="subirPost">Publicar</button>
+      </div>
+    </form>
+    @for(comment of comentarios(); track comment._id){
+    <app-comment-card [comment]="comment"></app-comment-card>
+    }
+    <div class="buttons">
+      <button class="getMore" (click)="getMoreComments()">Cargar Mas</button>
     </div>
-    <div class="postContainer">
-        <p>{{post.text}}</p>
-    </div>
-    <div class="imagenes">
-        <img [ngClass]="post.images[0] !== '' ? 'imgContenido' : 'imgOculto'" [src]="post.images[0]"/>
-        <img [ngClass]="post.images[1] !== '' ? 'imgContenido' : 'imgOculto'" [src]="post.images[1]"/>
-        <img [ngClass]="post.images[2] !== '' ? 'imgContenido' : 'imgOculto'" [src]="post.images[2]"/>
-    </div>
-    <div class="reactionsContainer">
-        @if (!ownPost) {
-            @if(post.liked == true){
-                <p (click)="quitarLike()" class="liked">😀 Me Gustó - {{post.likes}}</p>
-            }@else {
-                <p (click)="darLike()">Me Gusta - {{post.likes}}</p>
-            }
-        }
-        <p>Comentarios</p>
-    </div>
+  </div>
+  }
 </div>

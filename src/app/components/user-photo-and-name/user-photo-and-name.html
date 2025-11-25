@@ -1,4 +1,11 @@
-<div routerLink="/profile" [queryParams]="{id: data._id}" class="perfil">
-    <img class="fotoPerfil" [src]="data.image"/>
-    <p>{{data.name}} {{data.surname}}</p>
-</div>
+@if(data.error == undefined){
+    <div routerLink="/profile" [queryParams]="{id: data._id}" class="perfil">
+        <img class="fotoPerfil" [src]="data.image"/>
+        <p>{{data.name}} {{data.surname}}</p>
+    </div>
+}@else {
+    <div routerLink="/login" class="perfil">
+        <img class="fotoPerfil" [src]="data.image"/>
+        <p>{{data.name}} {{data.surname}}</p>
+    </div>
+}

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import axios from "axios"
+import axios from 'axios';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class Authentication {
-  async loginUser(data : any){
+  loginUser(data: any) {
     try {
-      const response = await axios.post(`${environment.apiUrl}authentication`, data)
-      console.log("response: " + response);
-      
+      const response = axios.post(`${environment.apiUrl}authentication`, data);
+      console.log('response: ' + response);
+
       return response;
     } catch (error) {
       console.log(error);
@@ -18,11 +18,11 @@ export class Authentication {
     }
   }
 
-  async registerUser(data : any){
+  registerUser(data: any) {
     try {
       console.log(data);
-      
-      const response = await axios.post(`${environment.apiUrl}users`, data)
+
+      const response = axios.post(`${environment.apiUrl}users`, data);
       return response;
     } catch (error) {
       console.log(error);
@@ -30,11 +30,27 @@ export class Authentication {
     }
   }
 
-  async uploadPhoto(data : any){
+  uploadPhoto(data: any) {
     try {
       console.log(data);
-      
-      const response = await axios.post(`${environment.apiUrl}cloudinary`, data)
+
+      const response = axios.post(`${environment.apiUrl}cloudinary`, data);
+      return response;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  verifyToken(data: any) {
+    try {
+      console.log(data);
+
+      const response = axios.get(`${environment.apiUrl}authentication`, {
+        headers: {
+          "Authorization": data,
+        },
+      });
       return response;
     } catch (error) {
       console.log(error);

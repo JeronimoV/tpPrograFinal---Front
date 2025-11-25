@@ -8,11 +8,13 @@ import { Authentication } from '../../services/authentication/authentication';
 import { Posts } from '../../services/posts/posts';
 import { CommonModule } from '@angular/common';
 import { Users } from '../../services/users/users';
-import { all } from 'axios';
+import { LoadingPage } from '../../components/loading-page/loading-page';
+import { verificarToken } from '../../utils/authorization.utils';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [Chat, Post, UserPhotoAndName, FormsModule, CommonModule],
+  imports: [Chat, Post, UserPhotoAndName, FormsModule, CommonModule, LoadingPage],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -20,8 +22,11 @@ export class Home implements OnInit {
   constructor(
     private auth: Authentication,
     private postService: Posts,
-    private usersService: Users
+    private usersService: Users,
+    private router : Router
   ) {}
+
+  loading = signal(true);
 
   stateImage: String = '📸';
 
@@ -35,12 +40,18 @@ export class Home implements OnInit {
 
   likes: any[] = [];
 
-  userData = JSON.parse(localStorage.getItem('data') ?? '{}');
+  userData = JSON.parse(localStorage.getItem('data') ?? '{"error": "Sin datos"}');
 
   text: string = '';
   images: [string, string, string] = ['', '', ''];
 
   async ngOnInit() {
+
+    let response = await verificarToken(this.auth, this.router);
+    this.loading.set(response);
+    console.log(response + "acaaaacaca");
+    
+
     await this.postService
       .obtenerPosts(this.userData._id)
       .then((res) => this.posts.set(res.data))
@@ -50,12 +61,14 @@ export class Home implements OnInit {
 
     this.paginado(0);
 
-    await this.getLikes();
-    await this.verificarLike();
+    if(this.userData.error == undefined){
+      await this.getLikes();
+      await this.verificarLike();
+    }
   }
 
   async getLikes() {
-    if (this.userData != '{}') {
+    if (this.userData.error != undefined) {
       const response = await this.usersService.getLikes(this.userData._id);
       this.likes = response.data.likes;
     }

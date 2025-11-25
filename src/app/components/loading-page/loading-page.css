@@ -1,0 +1,11 @@
+.container{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
