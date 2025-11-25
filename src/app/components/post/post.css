@@ -46,6 +46,10 @@
     padding: 1vw;
 }
 
+.postContainer p{
+    white-space: normal;
+}
+
 
 .imgContenido{
     object-fit:contain;

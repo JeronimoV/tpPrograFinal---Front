@@ -14,6 +14,7 @@ export class SecondStepRegister {
 
   @Input() email! : string;
   @Input() password! : string;
+  habilitado : boolean = true;
 
   data = {
     image : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
@@ -40,7 +41,9 @@ export class SecondStepRegister {
   constructor(private auth : Authentication, private router : Router){}
 
   async selectedPhoto(event : any){   
+    this.habilitado = false;
     this.data.image = await getImageURL(event, this.auth);
+    this.habilitado = true;
   }
 
   verificarExistenciaDatos(){
