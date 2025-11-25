@@ -5,7 +5,7 @@ import { BehaviorSubject, interval, Subscription } from 'rxjs';
   providedIn: 'root'
 })
 export class Contador {
-    private tiempoRestante = new BehaviorSubject<number>(60); // 10 min en segundos
+    private tiempoRestante = new BehaviorSubject<number>(600); 
   tiempoRestante$ = this.tiempoRestante.asObservable();
 
   private timerSub!: Subscription;

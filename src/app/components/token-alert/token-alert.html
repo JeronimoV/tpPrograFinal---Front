@@ -1,11 +1,13 @@
-<div *ngIf="mostrarModal" class="modal-backdrop">
-  <div class="modal-content">
-    <h2>Tu sesión está por vencer</h2>
-    <p>¿Querés extender el token?</p>
-
-    <button (click)="cerrarSesion()">Cerrar</button>
-    <button (click)="extender()">Extender</button>
+@if(mostrarModal()){
+  <div class="modal-backdrop">
+    <div class="modal-content">
+      <h2>Tu sesión está por vencer</h2>
+      <p>¿Querés extender el token?</p>
+  
+      <button (click)="cerrarSesion()">Cerrar</button>
+      <button (click)="extender()">Extender</button>
+    </div>
   </div>
-</div>
+}
 
 <p>Tiempo restante: {{ tiempoRestante }}s</p>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contador } from '../../services/contador';
 
@@ -10,7 +10,7 @@ import { Contador } from '../../services/contador';
   styleUrl: './token-alert.css',
 })
 export class TokenAlert {
-mostrarModal = false;
+mostrarModal = signal(false);
   tiempoRestante = 0;
 
   constructor(
@@ -23,7 +23,9 @@ mostrarModal = false;
       this.tiempoRestante = t;
 
       if (t <= 0) {
-        this.mostrarModal = true;
+        this.mostrarModal.set(true);
+        console.log("acatoy");
+        
       }
     });
 
@@ -36,7 +38,7 @@ mostrarModal = false;
   }
 
   extender() {
-    this.mostrarModal = false;
+    this.mostrarModal.set(false);
     this.contador.reiniciar();
   }
 }
