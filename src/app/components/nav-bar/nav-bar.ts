@@ -13,6 +13,6 @@ export class NavBar{
 
   cerrarSesion(){
     localStorage.clear();
-    window.location.href = "http://localhost:4200/login"
+    window.location.href = "https://tp-progra-final-front.vercel.app//login"
   }
 }
