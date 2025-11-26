@@ -2,13 +2,6 @@
     height: 100vh;
 }
 
-.options{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: fit-content;
-}
-
 .contenedor-graficos{
     display: flex;
     justify-content: center;
@@ -48,12 +41,4 @@ button{
     border: none;
     color: white;
     border-radius: 5px;
-}
-
-.contenedor-graficos div{
-    height: fit-content;
-}
-
-canvas{
-    min-height: 40vh;
 }
