@@ -10,7 +10,6 @@
     background-color: rgb(185, 185, 185);
     border-radius: 5px;
     width: 100vw;
-    min-height: 30vw;
     height: fit-content;
     padding: 1vw;
     overflow: auto;
@@ -42,4 +41,8 @@ button{
     border: none;
     color: white;
     border-radius: 5px;
+}
+
+canvas{
+    min-height: 30vw;
 }
