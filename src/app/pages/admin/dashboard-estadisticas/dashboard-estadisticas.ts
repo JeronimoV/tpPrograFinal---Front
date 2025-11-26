@@ -45,7 +45,7 @@ export class DashboardEstadisticas {
     const response2 = await this.commentServices.getCommentsByDate({"inicio": this.date1, "final": this.date2})
     const response3 = await this.commentServices.getCommentsByPost({"inicio": this.date1, "final": this.date2})
 
-    if(response1.data.error == undefined){
+    if(response1.data.error != undefined){
       throw new Error("No hay informacion disponible en estas fechas")
     }
     
