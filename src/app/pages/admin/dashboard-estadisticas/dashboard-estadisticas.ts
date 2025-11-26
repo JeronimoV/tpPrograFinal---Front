@@ -29,8 +29,13 @@ export class DashboardEstadisticas {
   constructor(private postServices : Posts , private commentServices : Comments){}
 
   async generarGraficos(){
+    try {
 
-    this.show = true;
+      if(this.date1 > this.date2){
+        throw new Error("La fecha final no debe ser mayor a la inicial");
+      }
+
+      this.show = true;
 
     if (this.chart1) this.chart1.destroy();
     if (this.chart2) this.chart2.destroy();
@@ -39,6 +44,10 @@ export class DashboardEstadisticas {
     const response1 = await this.postServices.getPostsByDate({"inicio": this.date1, "final": this.date2})
     const response2 = await this.commentServices.getCommentsByDate({"inicio": this.date1, "final": this.date2})
     const response3 = await this.commentServices.getCommentsByPost({"inicio": this.date1, "final": this.date2})
+
+    if(response1.data.error == undefined){
+      throw new Error("No hay informacion disponible en estas fechas")
+    }
     
 
     const labels1 = Object.keys(response1.data)
@@ -135,6 +144,9 @@ export class DashboardEstadisticas {
       }
     });
     
+    } catch (error : any) {
+      alert(error.message)
+    }
     
   }
 
