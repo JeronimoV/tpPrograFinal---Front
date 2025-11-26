@@ -38,4 +38,26 @@ export class Comments {
       throw error;
     }
   }
+
+  getCommentsByDate(data : any){
+    try {
+      const response = axios.post(`${environment.apiUrl}comments/commentDate`, data)
+
+      return response;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
+  getCommentsByPost(data : any){
+    try {
+      const response = axios.post(`${environment.apiUrl}comments/commentFromPost`, data)
+
+      return response;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
 }

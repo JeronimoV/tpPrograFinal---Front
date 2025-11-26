@@ -25,4 +25,15 @@ export class Posts {
     const response = axios.delete(`${environment.apiUrl}posts/${id}`);
     return response;
   }
+
+  getPostsByDate(data : any){
+    try {
+      const response = axios.post(`${environment.apiUrl}posts/postDate`, data)
+
+      return response;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
 }

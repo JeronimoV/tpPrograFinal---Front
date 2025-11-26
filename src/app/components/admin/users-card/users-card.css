@@ -1,0 +1,23 @@
+.container{
+    background-color: #71953E;
+    padding: 0.5vw;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.baja{
+    width: 10vw;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}
+
+.alta{
+    width: 10vw;
+    background-color: blue;
+    border: none;
+    color: white;
+    border-radius: 5px;
+}

@@ -1,1 +1,22 @@
-<p>dashboard-estadisticas works!</p>
+<div class="container">
+    <input name="date1" [(ngModel)]="date1" type="date"/>
+    <input name="date2" [(ngModel)]="date2"  type="date"/>
+    <button (click)="generarGraficos()">Crear Graficos</button>
+    <div class="contenedor-graficos">
+        @if(show){
+
+            <div>
+                <p>Grafico Publicaciones Usuarios</p>
+                <canvas id="myChart"></canvas>
+            </div>
+            <div>
+                <p>Comentarios Lapso de Tiempo</p>
+                <canvas id="myChart2"></canvas>
+            </div>
+            <div>
+                <p>Grafico Comentarios por Usuarios</p>
+                <canvas id="myChart3"></canvas>
+            </div>
+        }
+    </div>
+</div>

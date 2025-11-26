@@ -2,10 +2,11 @@ import { Component, Input, OnInit, signal } from '@angular/core';
 import { UserPhotoAndName } from '../user-photo-and-name/user-photo-and-name';
 import { FormsModule } from '@angular/forms';
 import { Comments } from '../../services/comments/comments';
+import { RecortarTextoPipe } from '../../pipes/recortarTexto/recortar-texto-pipe';
 
 @Component({
   selector: 'app-comment-card',
-  imports: [UserPhotoAndName, FormsModule],
+  imports: [UserPhotoAndName, FormsModule, RecortarTextoPipe],
   templateUrl: './comment-card.html',
   styleUrl: './comment-card.css',
 })

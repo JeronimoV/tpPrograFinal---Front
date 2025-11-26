@@ -1,0 +1,10 @@
+<div class="container">
+    @if(user != undefined){
+        <app-user-photo-and-name [data]="user"/>
+        @if(user.userEnabled == true){
+            <button class="baja" (click)="darDeBaja()">Eliminar</button>
+        }@else {
+            <button class="alta" (click)="darDeAlta()">Habilitar</button>
+        }
+    }
+</div>

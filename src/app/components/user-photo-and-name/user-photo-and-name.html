@@ -6,6 +6,6 @@
 }@else {
     <div routerLink="/login" class="perfil">
         <img class="fotoPerfil" [src]="data.image"/>
-        <p>{{data.name}} {{data.surname}}</p>
+        <p>{{data | nombreUsuario}}</p>
     </div>
 }

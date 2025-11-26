@@ -1,1 +1,84 @@
-<p>dashboard-usuarios works!</p>
+@if(nextStep){
+  <app-second-step-register [email]="email" [password]="password" [admin]="admin" logIn="false"/>
+  }@else {
+<div class="container">
+  <div class="container-div">
+    <p class="title">Lista de usuarios</p>
+    <div class="users-container">
+      @for(user of users(); track user){
+                <app-users-card [user]="user"></app-users-card>
+            }
+    </div>
+  </div>
+  <div class="container-div">
+    <p class="title">Crear Usuario</p>
+    <div class="login">
+      <form>
+        <div>
+          <label for="email">Email</label>
+          <input
+            pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/"
+            [(ngModel)]="email"
+            name="email"
+            class="email"
+            type="email"
+            placeholder="Ingrese su email"
+          />
+          <p class="error">{{ error.email }}</p>
+        </div>
+        <div>
+          <label for="contraseña">Contraseña</label>
+          <input
+            (input)="verificarErrores()"
+            [(ngModel)]="password"
+            name="password"
+            class="contraseña"
+            type="password"
+            placeholder="Ingrese su contraseña"
+          />
+          <p class="error">{{ error.password }}</p>
+        </div>
+        <div>
+          <label for="repetirContraseña">Contraseña</label>
+          <input
+            (input)="verificarErrores()"
+            [(ngModel)]="password2"
+            name="password2"
+            class="repetirContraseña"
+            type="password"
+            placeholder="Repetir Contraseña"
+          />
+          <p class="error">{{ error.password2 }}</p>
+        </div>
+        <div class="admin-div">
+          <label>Usuario Administrador</label>
+          <div class="inputs-admin">
+            <label class="label-admin"> Si </label>
+            <input
+              (input)="verificarErrores()"
+              [(ngModel)]="admin"
+              name="admin"
+              class="admin"
+              type="radio"
+              value="true"
+            />
+            <label class="label-admin"> No </label>
+            <input
+              (input)="verificarErrores()"
+              [(ngModel)]="admin"
+              name="admin"
+              class="admin"
+              type="radio"
+              value="false"
+            />
+          </div>
+          <p class="error">{{ error.admin }}</p>
+        </div>
+        <button class="button" type="submit" (click)="selectNextStep($event)">
+          Siguiente Paso
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+  }

@@ -7,7 +7,7 @@
           <p class="editado">Cometario Editado!</p>
         }
       </div>
-      <p class="comentario-text">{{comment.text}}</p>
+      <p class="comentario-text">{{comment.text | recortarTexto:50}}</p>
       @if(ownComment() == true){
         <button (click)="startEdit()" class="comentario-button">Editar</button>
       }

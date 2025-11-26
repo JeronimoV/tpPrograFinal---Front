@@ -14,7 +14,10 @@ export class SecondStepRegister {
 
   @Input() email! : string;
   @Input() password! : string;
+  @Input() admin! : string;
+  @Input() logIn : string = "true";
   habilitado : boolean = true;
+
 
   data = {
     image : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
@@ -25,6 +28,7 @@ export class SecondStepRegister {
     userName : "",
     fechaNacimiento : "",
     descripcion : "",
+    admin: ""
   }
 
   error : { [key: string]: string } = {
@@ -36,6 +40,7 @@ export class SecondStepRegister {
     userName : "",
     fechaNacimiento : "",
     descripcion : "",
+    admin: ""
   }
 
   constructor(private auth : Authentication, private router : Router){}
@@ -63,8 +68,13 @@ export class SecondStepRegister {
     
     this.data.email = this.email;
     this.data.password = this.password;
-    if(!this.verificarExistenciaDatos()){
-      await this.auth.registerUser(this.data).then(res => localStorage.setItem("data", JSON.stringify(res.data))).then(res => this.router.navigate(["/"])).catch(err => alert(err.response.data.message));
+    this.data.admin = this.admin;
+    if(!this.verificarExistenciaDatos() && this.habilitado){
+      if(this.logIn == "true"){
+        await this.auth.registerUser(this.data).then(res => localStorage.setItem("data", JSON.stringify(res.data))).then(res => this.router.navigate(["/"])).catch(err => alert(err.response.data.message));
+      }else{
+        await this.auth.registerUser(this.data).then(res => window.location.reload())
+      }
     }
   }
 }

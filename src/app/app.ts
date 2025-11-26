@@ -1,17 +1,18 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavBar } from './components/nav-bar/nav-bar';
-import { TokenAlert } from './components/token-alert/token-alert';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBar, TokenAlert],
+  imports: [RouterOutlet, NavBar],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
 
   showNavBar = true;
+
+  userData = JSON.parse(localStorage.getItem('data') ?? '{"error": "Sin datos"}');
 
   constructor(private router : Router){
     this.router.events.subscribe(event => {
@@ -20,5 +21,14 @@ export class App {
       }
     })
   }
+
+  ngOnInit(): void {
+    if(this.userData.error == undefined && this.userData.userEnabled == false){
+      localStorage.clear();
+      this.router.navigate(["/login"])
+    }
+  }
+
+
   protected readonly title = signal('front');
 }

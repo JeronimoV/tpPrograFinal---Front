@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TokenAlert } from './token-alert';
+import { UsersCard } from './users-card';
 
-describe('TokenAlert', () => {
-  let component: TokenAlert;
-  let fixture: ComponentFixture<TokenAlert>;
+describe('UsersCard', () => {
+  let component: UsersCard;
+  let fixture: ComponentFixture<UsersCard>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TokenAlert]
+      imports: [UsersCard]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TokenAlert);
+    fixture = TestBed.createComponent(UsersCard);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,115 @@
+ .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+ }
+ 
+ .users-container{
+    height: 50vh;
+    width: 50vw;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vw;
+    overflow: auto;
+    padding-top: 1vw;
+ }
+
+ .users-container > *{
+    width: 95%;
+ }
+ 
+ .container-div{
+    background-color: #71953E;
+    color: white;
+    padding-top: 2vw;
+    width: 80vw;
+    border-radius: 5px;
+    padding-bottom: 2vw;
+    margin-top: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+
+ .title{
+    display: flex;
+    align-items: center;
+    width: 78vw;
+    background-color: #56742d;
+    height: 3vw;
+    margin-bottom: 2vw;
+    padding-left: 2vw;
+ }
+ 
+ form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1vw;
+    text-align: left;
+}
+
+ form div{
+    display: flex;
+    flex-direction: column;
+}
+
+ form div input{
+    width: 17vw;
+    height: 3.5vh;
+    background-color: #71953E;
+    border: none;
+    color: white;
+    padding: 0.3vw;
+    padding-left: 1vw;
+    border-radius: 5px;
+    margin-top: 0.5vw;
+}
+
+ form button{
+    margin: 1vw;
+    width: 10vw;
+    height: 4vh;
+    background-color: #71953E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.error{
+    margin-top: 0.5vw;
+    color: rgb(119, 6, 6);
+}
+
+.msg{
+    opacity: .75;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+
+.admin{
+    width: 1vw;
+}
+
+.admin-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputs-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vw;
+    gap: 1vw;
+}
