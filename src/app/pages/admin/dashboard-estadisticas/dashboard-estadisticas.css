@@ -1,5 +1,5 @@
 .container{
-    height: fit-content;
+    height: 100vh;
 }
 
 .contenedor-graficos{
@@ -10,7 +10,9 @@
     background-color: rgb(185, 185, 185);
     border-radius: 5px;
     width: 100vw;
+    height: 70vh;
     padding: 1vw;
+    overflow: auto;
 }
 
 canvas{
