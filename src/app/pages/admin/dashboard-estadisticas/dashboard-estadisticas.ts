@@ -146,7 +146,7 @@ export class DashboardEstadisticas {
     });
     
     } catch (error : any) {
-      alert(error.message)
+      swal(error.message)
     }
     
   }

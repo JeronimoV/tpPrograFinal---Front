@@ -106,7 +106,7 @@ export class Home implements OnInit {
         this.stateImage = '📸';
       }
     } catch (error: any) {
-      alert(error.message);
+      swal(error.message);
     }
   }
 

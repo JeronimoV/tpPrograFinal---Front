@@ -71,7 +71,7 @@ export class SecondStepRegister {
     this.data.admin = this.admin;
     if(!this.verificarExistenciaDatos() && this.habilitado){
       if(this.logIn == "true"){
-        await this.auth.registerUser(this.data).then(res => localStorage.setItem("data", JSON.stringify(res.data))).then(res => this.router.navigate(["/"])).catch(err => alert(err.response.data.message));
+        await this.auth.registerUser(this.data).then(res => localStorage.setItem("data", JSON.stringify(res.data))).then(res => this.router.navigate(["/"])).catch(err => swal(err.response.data.message));
       }else{
         await this.auth.registerUser(this.data).then(res => window.location.reload())
       }

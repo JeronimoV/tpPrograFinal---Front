@@ -45,7 +45,7 @@ export class Post implements OnInit {
   darLike(){
     
     if(this.userData.error != undefined){
-      alert("Debes iniciar sesión para dar me gusta");
+      swal("Debes iniciar sesión para dar me gusta");
     }else{
       this.usersService.darMeGusta({postId: this.post._id, userId: this.userData._id, likes: this.post.likes}).then(res => this.post.liked = true).catch(err => console.log(err));
       this.post.likes +=1;
@@ -58,7 +58,7 @@ export class Post implements OnInit {
   }
 
   async deletePost(){
-    const response = await this.postService.borrarPost(this.post._id).then(res => alert("Post Eliminado")).catch(err => console.log(err))
+    const response = await this.postService.borrarPost(this.post._id).then(res => swal("Post Eliminado")).catch(err => console.log(err))
     window.location.reload()
   }
 
