@@ -15,11 +15,6 @@
     overflow: auto;
 }
 
-canvas{
-    width: 30vw;
-    height: 30vh;
-}
-
 input{
     width: 20vw;
     height: 4vh;
