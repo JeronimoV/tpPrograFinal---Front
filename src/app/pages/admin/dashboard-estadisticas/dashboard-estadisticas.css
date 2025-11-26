@@ -46,3 +46,7 @@ button{
 .contenedor-graficos div{
     height: fit-content;
 }
+
+canvas{
+    min-height: 40vh;
+}
