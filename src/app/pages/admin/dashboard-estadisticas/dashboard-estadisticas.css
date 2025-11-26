@@ -2,6 +2,13 @@
     height: 100vh;
 }
 
+.options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+}
+
 .contenedor-graficos{
     display: flex;
     justify-content: center;
