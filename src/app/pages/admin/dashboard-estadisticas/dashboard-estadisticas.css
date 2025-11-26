@@ -1,3 +1,7 @@
+.container{
+    height: fit-content;
+}
+
 .contenedor-graficos{
     display: flex;
     justify-content: center;
