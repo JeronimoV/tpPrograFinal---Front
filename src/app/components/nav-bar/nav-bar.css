@@ -57,6 +57,9 @@
 
 .main{
     display: flex;
+    align-items: center;
+    gap: 1vw;
+    font-size: 2vw;
 }
 
 .main h1{
